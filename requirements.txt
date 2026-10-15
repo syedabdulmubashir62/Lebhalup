@@ -4,4 +4,5 @@ pycryptodome
 protobuf-decoder
 protobuf
 requests
-aiohttpgunicorn
+aiohttp
+gunicorn
