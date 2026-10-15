@@ -1,3 +1,4 @@
+import os
 # -*- coding: utf-8 -*-
 """
 FreeFire Level Up Bot - Professional Web Dashboard & Real-Time EXP Tracker
@@ -708,7 +709,7 @@ async def handle_toggle_pause_all(request: web.Request) -> web.Response:
         return web.json_response({"status": "error", "error": str(e)})
 
 
-async def start_web_dashboard(host: str = "0.0.0.0", port: int = 5000):
+async def start_web_dashboard(host: str = "0.0.0.0", port: int = int(os.environ.get("PORT", 5000))):
     app = web.Application()
     app.router.add_get("/", handle_index)
     app.router.add_get("/api/stats", handle_get_stats)
